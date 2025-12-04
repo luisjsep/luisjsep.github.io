@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>Sky Fighter - DEBUG MODE</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="game-container">
+        <!-- Pantalla de inicio -->
+        <div id="start-screen" class="screen active">
+            <div class="menu-content">
+                <h1>SKY FIGHTER</h1>
+                <h2 style="color: #ff6b6b; font-size: 1.2rem;">🔧 MODO DEBUG ACTIVADO</h2>
+                <div class="plane-preview">
+                    <img src="1.png" alt="Avión Principal" onerror="this.style.background='red'; this.style.display='block';">
+                </div>
+                <button id="start-btn" class="btn">¡COMENZAR!</button>
+                <div class="instructions">
+                    <p>🎮 Toca para mover el avión</p>
+                    <p>🚀 Toca la pantalla para disparar</p>
+                    <p>💥 Destruye todos los aviones enemigos</p>
+                </div>
+                
+                <!-- Debug info (SIEMPRE VISIBLE) -->
+                <div id="debug-info" style="margin-top: 20px; padding: 15px; background: rgba(0,0,0,0.9); border-radius: 10px; color: white; font-size: 12px; border: 2px solid #ff6b6b;">
+                    <h4>🔧 Estado del Sistema</h4>
+                    <div id="image-status">Cargando sprites...</div>
+                    <div id="canvas-status"></div>
+                    <div id="transparency-test" style="margin-top: 10px;">
+                        <canvas id="test-canvas" width="150" height="150" style="border: 1px solid #ff6b6b; background: repeating-conic-gradient(#ff0000 0% 25%, #ffffff 0% 50%) 50% / 20px 20px;"></canvas>
+                    </div>
+                    <button id="reload-sprites" class="btn secondary" style="font-size: 10px; padding: 8px 15px; margin-top: 10px;">🔄 Recargar Sprites</button>
+                    <button id="test-transparency" class="btn secondary" style="font-size: 10px; padding: 8px 15px; margin-top: 5px;">🧪 Test Transparencia</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Pantalla de juego -->
+        <div id="game-screen" class="screen">
+            <div class="hud">
+                <div class="score">Puntuación: <span id="score">0</span></div>
+                <div class="lives">Vidas: <span id="lives">3</span></div>
+                <div class="level">Nivel: <span id="level">1</span></div>
+                <div style="background: rgba(255,107,107,0.8); padding: 5px; border-radius: 10px; color: white; font-size: 0.8rem;">
+                    DEBUG ACTIVO
+                </div>
+            </div>
+            
+            <div class="game-area">
+                <canvas id="gameCanvas" width="400" height="600"></canvas>
+                
+                <!-- Controles táctiles -->
+                <div class="touch-controls">
+                    <div class="control-area" id="move-control"></div>
+                    <div class="fire-button" id="fire-btn">
+                        <div class="fire-icon">🚀</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Pantalla de game over -->
+        <div id="game-over-screen" class="screen">
+            <div class="menu-content">
+                <h2>¡JUEGO TERMINADO!</h2>
+                <div class="final-score">
+                    <p>Puntuación Final: <span id="final-score">0</span></p>
+                    <p>Nivel Alcanzado: <span id="final-level">1</span></p>
+                </div>
+                <button id="restart-btn" class="btn">¡JUGAR DE NUEVO!</button>
+                <button id="menu-btn" class="btn secondary">MENÚ PRINCIPAL</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="game.js"></script>
+</body>
+</html>
