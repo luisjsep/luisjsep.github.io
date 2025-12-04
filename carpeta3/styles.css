@@ -1,0 +1,83 @@
+/* --- Variables Generales --- */
+:root {
+    --primary-color: #007bff;
+    --secondary-color: #6c757d;
+    --background-color: #f8f9fa;
+    --card-background: #ffffff;
+    --shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* --- Estilos Base --- */
+body {
+    font-family: Arial, sans-serif;
+    background-color: var(--background-color);
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.welcome-container {
+    background: var(--card-background);
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: var(--shadow);
+    text-align: center;
+    max-width: 90%;
+    width: 600px;
+}
+
+/* --- Estilos de la Imagen (CORRECCIÓN CLAVE) --- */
+
+/* Wrapper para controlar el tamaño del área de la imagen */
+.image-wrapper {
+    width: 100%;
+    max-width: 350px; /* Tamaño máximo deseado para la imagen */
+    height: auto;
+    margin: 30px auto;
+    overflow: hidden; /* Asegura que la imagen no sobresalga del contenedor si es muy grande */
+}
+
+.floating-image {
+    width: 100%;
+    height: auto;
+    /* * CORRECCIÓN: Usamos 'max-width: 100%' y 'height: auto' para 
+     * asegurar que la imagen se escale manteniendo su PROPORCIÓN.
+     */
+    display: block;
+    border-radius: 8px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    
+    /* Aplicando el efecto flotante */
+    animation: float 6s ease-in-out infinite;
+}
+
+@keyframes float {
+    0% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+    100% { transform: translateY(0); }
+}
+
+/* --- Estilos del Botón --- */
+#startButton {
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    padding: 12px 25px;
+    font-size: 1.1em;
+    border-radius: 6px;
+    cursor: pointer;
+    margin-top: 20px;
+    transition: background-color 0.3s, transform 0.1s;
+}
+
+#startButton:hover {
+    background-color: #0056b3;
+}
+
+#startButton:active {
+    transform: scale(0.98);
+}
